@@ -66,6 +66,8 @@
 		4B57048E260E0B5700CD4FB8 /* ProductDetailWorkerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B57048A260E0B5700CD4FB8 /* ProductDetailWorkerTests.swift */; };
 		4B5704C6260E33AE00CD4FB8 /* StarRatingStackView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4B5703D6260DB6C400CD4FB8 /* StarRatingStackView.xib */; };
 		4BDB6580260E48F900690EA8 /* UIViewController + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BDB657F260E48F900690EA8 /* UIViewController + Extensions.swift */; };
+		4BDB658A260E560700690EA8 /* ProductListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BDB6589260E560700690EA8 /* ProductListTableViewCell.swift */; };
+		4BDB658B260E560700690EA8 /* ProductListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BDB6589260E560700690EA8 /* ProductListTableViewCell.swift */; };
 		4BDEBCCA260BE1060060B319 /* ProductDetailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BDEBCC9260BE1060060B319 /* ProductDetailModel.swift */; };
 		4BDEBCD0260BE1EC0060B319 /* ReviewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BDEBCCF260BE1EC0060B319 /* ReviewModel.swift */; };
 		4BDEBCD1260BE1EC0060B319 /* ReviewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BDEBCCF260BE1EC0060B319 /* ReviewModel.swift */; };
@@ -138,6 +140,7 @@
 		4B570489260E0B5700CD4FB8 /* ProductDetailViewControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductDetailViewControllerTests.swift; sourceTree = "<group>"; };
 		4B57048A260E0B5700CD4FB8 /* ProductDetailWorkerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductDetailWorkerTests.swift; sourceTree = "<group>"; };
 		4BDB657F260E48F900690EA8 /* UIViewController + Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController + Extensions.swift"; sourceTree = "<group>"; };
+		4BDB6589260E560700690EA8 /* ProductListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductListTableViewCell.swift; sourceTree = "<group>"; };
 		4BDEBCC9260BE1060060B319 /* ProductDetailModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailModel.swift; sourceTree = "<group>"; };
 		4BDEBCCF260BE1EC0060B319 /* ReviewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewModel.swift; sourceTree = "<group>"; };
 		4BDEBCE4260BEA5E0060B319 /* ServiceProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceProvider.swift; sourceTree = "<group>"; };
@@ -313,6 +316,7 @@
 		4B5703D4260DB68200CD4FB8 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				4BDB6588260E54F200690EA8 /* Cells */,
 				4B5703D5260DB68B00CD4FB8 /* ReviewView */,
 			);
 			path = Views;
@@ -348,6 +352,14 @@
 				4B57048A260E0B5700CD4FB8 /* ProductDetailWorkerTests.swift */,
 			);
 			path = "ProductDetail Scene Tests";
+			sourceTree = "<group>";
+		};
+		4BDB6588260E54F200690EA8 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				4BDB6589260E560700690EA8 /* ProductListTableViewCell.swift */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 		4BDEBCCE260BE1DD0060B319 /* Review */ = {
@@ -640,6 +652,7 @@
 				4B504A9C260C876300805DB9 /* ProductDetailModels.swift in Sources */,
 				4B0D85D3260D403C00CDE5CC /* UIView + Extensions.swift in Sources */,
 				4B504A6F260C7AFB00805DB9 /* ProductListModels.swift in Sources */,
+				4BDB658A260E560700690EA8 /* ProductListTableViewCell.swift in Sources */,
 				4B3BB39F260B9D6A002011EB /* AppDelegate.swift in Sources */,
 				4BDB6580260E48F900690EA8 /* UIViewController + Extensions.swift in Sources */,
 				4B504A98260C876300805DB9 /* ProductDetailWorker.swift in Sources */,
@@ -678,6 +691,7 @@
 				4BDEBCD8260BE1F20060B319 /* ProductsModel.swift in Sources */,
 				4B570461260DF8ED00CD4FB8 /* BaseService.swift in Sources */,
 				4BDEBCD1260BE1EC0060B319 /* ReviewModel.swift in Sources */,
+				4BDB658B260E560700690EA8 /* ProductListTableViewCell.swift in Sources */,
 				4B5703E1260DC9C900CD4FB8 /* ReviewServices.swift in Sources */,
 				4B0D85DD260D461C00CDE5CC /* AdiReachibility.swift in Sources */,
 				4B57048B260E0B5700CD4FB8 /* ProductDetailPresenterTests.swift in Sources */,

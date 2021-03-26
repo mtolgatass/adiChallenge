@@ -288,6 +288,8 @@ class ProductDetailViewController: UIViewController, ProductDetailDisplayLogic {
         reviews.append(result)
     }
 }
+
+// MARK: - TableView Extension
 extension ProductDetailViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         reviews.count

@@ -123,9 +123,11 @@ class ProductListViewController: UIViewController, ProductListDisplayLogic {
     }
     
 }
+
+// MARK: - TableView Extension
 extension ProductListViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return productList.count
+        return isSearching ? filteredProductList.count : productList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -139,16 +141,23 @@ extension ProductListViewController: UITableViewDelegate, UITableViewDataSource 
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let productId = productList[indexPath.row].id else {
-            return
+        var id: String = ""
+        if isSearching {
+            guard let productId = filteredProductList[indexPath.row].id else { return }
+            id = productId
+        } else {
+            guard let productId = productList[indexPath.row].id else { return }
+            id = productId
         }
         
+        
         let vc = ProductDetailViewController()
-        vc.productId = productId
+        vc.productId = id
         
         self.navigationController?.pushViewController(vc, animated: true)
     }
 }
+// MARK: - SearchBar Extension
 extension ProductListViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         if searchText.count >= 3 {
