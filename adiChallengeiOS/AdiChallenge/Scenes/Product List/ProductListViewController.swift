@@ -37,6 +37,7 @@ class ProductListViewController: UIViewController, ProductListDisplayLogic {
     }
     
     var isSearching: Bool = false
+    var cachedImages = [String: UIImage]()
 
     // MARK: - Object lifecycle
   
@@ -98,7 +99,7 @@ class ProductListViewController: UIViewController, ProductListDisplayLogic {
     }
     
     func setTableView() {
-        productsTableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        productsTableView.register(UINib(nibName: "ProductListTableViewCell", bundle: nil), forCellReuseIdentifier: "productCell")
         productsTableView.delegate = self
         productsTableView.dataSource = self
     }
@@ -131,11 +132,21 @@ extension ProductListViewController: UITableViewDelegate, UITableViewDataSource 
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "productCell", for: indexPath) as? ProductListTableViewCell else { return UITableViewCell() }
         
-        cell.selectionStyle = .none
-        cell.textLabel?.font = .systemFont(ofSize: 14, weight: .medium)
-        cell.textLabel?.text = productList[indexPath.row].id
+        cell.productName.text = productList[indexPath.row].name
+        
+        cell.productPrice.text = "\(productList[indexPath.row].currency ?? "") \(productList[indexPath.row].price ?? 0)"
+        
+        let imageUrl = productList[indexPath.row].imgUrl
+        if let image = cachedImages[imageUrl] {
+            cell.imageView?.image = image
+        } else {
+            cell.imageView?.setImageFromUrl(url: imageUrl, completion: { (image) in
+                cell.productImage.image = image
+                self.cachedImages[imageUrl] = image
+            })
+        }
         
         return cell
     }

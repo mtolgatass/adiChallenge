@@ -249,7 +249,9 @@ class ProductDetailViewController: UIViewController, ProductDetailDisplayLogic {
         if let reviews = response.reviews {
             self.reviews = reviews
         }
-        imageView.setImageFromUrl(url: response.imgUrl ?? "")
+        imageView.setImageFromUrl(url: response.imgUrl ?? "") { (image) in
+            self.imageView.image = image
+        }
         DispatchQueue.main.async {
             self.nameLabel.text = response.name
             self.priceLabel.text = "\(response.currency ?? "") \(response.price ?? 0)"
@@ -300,7 +302,7 @@ extension ProductDetailViewController: UITableViewDelegate, UITableViewDataSourc
         
         cell.selectionStyle = .none
         cell.textLabel?.font = .systemFont(ofSize: 14, weight: .medium)
-        cell.textLabel?.text = reviews[indexPath.row].text
+        cell.textLabel?.text = "(\(reviews[indexPath.row].rating ?? 5)/5) " + (reviews[indexPath.row].text ?? "")
         
         return cell
     }

@@ -9,14 +9,14 @@ import Foundation
 import UIKit
 
 extension UIImageView {
-    func setImageFromUrl(url: String) {
+    func setImageFromUrl(url: String, completion: @escaping(UIImage) -> Void) {
         guard let url = URL(string: url) else { return }
         DispatchQueue.main.async {
             do {
                 let data = try Data(contentsOf: url)
-                self.image = UIImage(data: data)
+                completion(UIImage(data: data) ?? UIImage())
             } catch {
-                self.image = UIImage(named: "placeholder")
+                completion(UIImage(named: "placeholder") ?? UIImage())
                 print(error.localizedDescription)
             }
         }
