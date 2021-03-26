@@ -117,7 +117,9 @@ class ProductListViewController: UIViewController, ProductListDisplayLogic {
         self.productList = viewModel.displayResults.resultModel
     }
     func displayError(error: APIError) {
-//
+        DispatchQueue.main.async {
+            self.showError(error: error)
+        }
     }
     
 }
